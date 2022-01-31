@@ -5,9 +5,13 @@ pipeline {
   }
   stages {
     stage('Hello') {
+      when { changeRequest() }
       steps {
+
         echo "Hello $GIT_BRANCH"
-        echo "New"
+        echo "This is $CHANGE_ID"
+        echo "this is $CHANGE_BRANCH"
+        echo "There is $CHANGE_TARGET"
       }
     }
   }
