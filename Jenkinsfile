@@ -17,7 +17,7 @@ pipeline {
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh 'echo $GIT_BRANCH && echo $CHANGE_ID'
                             sh '''sonar-scanner -Dsonar.pullrequest.key=${CHANGE_ID} -Dsonar.pullrequest.branch=${CHANGE_BRANCH} -Dsonar.pullrequest.base=${CHANGE_TARGET}
-                                  -Dsonar.branch.name=${CHANGE_BRANCH}'''
+                               '''
                     }
 
         echo " branch $GIT_BRANCH"
