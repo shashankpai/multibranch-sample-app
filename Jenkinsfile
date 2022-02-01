@@ -8,7 +8,7 @@ pipeline {
       when { changeRequest() }
       steps {
 
-        echo " $GIT_BRANCH"
+        echo "this is $GIT_BRANCH"
         echo "This is $CHANGE_ID"
         echo "this is $CHANGE_BRANCH"
         echo "There is $CHANGE_TARGET"
