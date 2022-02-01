@@ -5,14 +5,27 @@ pipeline {
   }
   stages {
     stage('Hello') {
+      agent {
+                docker {
+                    image 'sonarsource/sonar-scanner-cli'
+                    args '-e GIT_BRANCH=$GIT_BRANCH -e CHANGE_ID=$CHANGE_ID -e CHANGE_BRANCH=$CHANGE_BRANCH -e CHANGE_TARGET=$CHANGE_TARGET'
+                }
+      }
       when { changeRequest() }
       steps {
+        script{
+                    withSonarQubeEnv(credentialsId: 'sonar-token') {
+                            sh 'echo $GIT_BRANCH && echo $CHANGE_ID'
+                            sh '''sonar-scanner -Dsonar.pullrequest.key=${CHANGE_ID} -Dsonar.pullrequest.branch=${CHANGE_BRANCH} -Dsonar.pullrequest.base=${CHANGE_TARGET}
+                               '''
+                    }
 
-        echo "this is $GIT_BRANCH"
+        echo "This is branch $GIT_BRANCH"
         echo "This is $CHANGE_ID"
         echo "this is $CHANGE_BRANCH"
         echo "There is $CHANGE_TARGET"
       }
+    }
     }
     stage("sonar quality check"){
             agent {
