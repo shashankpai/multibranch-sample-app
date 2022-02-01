@@ -19,7 +19,7 @@ pipeline {
                             sh 'sonar-scanner -Dsonar.pullrequest.key=${CHANGE_ID} -Dsonar.pullrequest.branch=${CHANGE_BRANCH} -Dsonar.pullrequest.base=${CHANGE_TARGET}'
                     }
 
-        echo "Repo branch $GIT_BRANCH"
+        echo " branch $GIT_BRANCH"
         echo "This is $CHANGE_ID"
         echo "this is $CHANGE_BRANCH"
         echo "There is $CHANGE_TARGET"
