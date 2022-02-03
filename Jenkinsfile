@@ -20,7 +20,7 @@ pipeline {
                                '''
                     }
 
-        echo "TCurrent branch $GIT_BRANCH"
+        echo "thi is Current branch $GIT_BRANCH"
         echo "This is $CHANGE_ID"
         echo "this is $CHANGE_BRANCH"
         echo "There is $CHANGE_TARGET"
