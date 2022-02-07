@@ -20,7 +20,7 @@ pipeline {
                                '''
                     }
 
-        echo "This branch is $GIT_BRANCH"
+        echo "Main branch is $GIT_BRANCH"
         echo "This is $CHANGE_ID"
         echo "this is $CHANGE_BRANCH"
         echo "There is $CHANGE_TARGET"
