@@ -4,7 +4,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
-    stage('Hello') {
+    stage('Decorate Pull Request') {
       agent {
                 docker {
                     image 'sonarsource/sonar-scanner-cli'
