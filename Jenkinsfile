@@ -17,6 +17,7 @@ pipeline {
        }
       steps {
         dir('frontend'){
+        script{
                 if (BRANCH_NAME =~ /^PR-/){
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh 'echo $GIT_BRANCH && echo $CHANGE_ID'
@@ -28,9 +29,10 @@ pipeline {
         echo "This is not a PR branch"
                 }
       }
+      }
     }
     }
-    stage('Build Backen') {
+    stage('Build Backend') {
       agent {
                 docker {
                     image 'sonarsource/sonar-scanner-cli'
@@ -43,6 +45,7 @@ pipeline {
        }
       steps {
         dir('backend'){
+        script{
                 if (BRANCH_NAME =~ /^PR-/){
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh 'echo $GIT_BRANCH && echo $CHANGE_ID'
@@ -53,6 +56,7 @@ pipeline {
 
         echo "This is not a PR branch"
                 }
+      }
       }
     }
     }
