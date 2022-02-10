@@ -1,6 +1,0 @@
-projectKey=new
-serverUrl=http://3.84.29.115:9000
-serverVersion=9.2.4.50792
-dashboardUrl=http://3.84.29.115:9000/dashboard?id=new&pullRequest=12
-ceTaskId=AX7f4SvuHvH8T19ljtfT
-ceTaskUrl=http://3.84.29.115:9000/api/ce/task?id=AX7f4SvuHvH8T19ljtfT
