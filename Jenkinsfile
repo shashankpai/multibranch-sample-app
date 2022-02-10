@@ -16,7 +16,7 @@ pipeline {
         beforeAgent true
        }
       steps {
-        script{
+        dir('frontend'){
                 if (BRANCH_NAME =~ /^PR-/){
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh 'echo $GIT_BRANCH && echo $CHANGE_ID'
@@ -42,7 +42,7 @@ pipeline {
         beforeAgent true
        }
       steps {
-        script{
+        dir('backend'){
                 if (BRANCH_NAME =~ /^PR-/){
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh 'echo $GIT_BRANCH && echo $CHANGE_ID'
